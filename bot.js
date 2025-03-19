@@ -17,7 +17,7 @@ bot.onText(/\/movie (.+)/,function(msg,match){
 		//key obtained from omdbapi
 
       const url = `${movie}`;
-      const response = await axios.get(url);
+      const response = axios.get(url);
       const $ = cheerio.load(response.data);
 
       const title = $("div.banners-right > h1").text().trim();
