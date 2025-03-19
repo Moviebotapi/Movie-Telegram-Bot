@@ -15,9 +15,9 @@ bot.onText(/\/movie (.+)/,function(msg,match){
  //   reques('http://www.omdbapi.com/?t='+movie+'&apikey=YOUR_OMDB_KEY',function(error,response,body){
 		
 		//key obtained from omdbapi
-
+async function search() {
       const url = `${movie}`;
-      const response = axios.get(url);
+      const response = await axios.get(url);
       const $ = cheerio.load(response.data);
 
       const title = $("div.banners-right > h1").text().trim();
@@ -42,5 +42,5 @@ bot.onText(/\/movie (.+)/,function(msg,match){
             }
         }
   //  })
-
+}
 })
